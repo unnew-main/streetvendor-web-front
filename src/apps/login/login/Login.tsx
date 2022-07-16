@@ -1,4 +1,5 @@
 import { PageLayout } from '@components/layout/PageLayout'
+import Link from 'next/link'
 import GoogleLogin from 'react-google-login'
 export const Login = () => {
   const responseGoogle = (response: any) => {
@@ -14,7 +15,14 @@ export const Login = () => {
           onSuccess={responseGoogle}
           onFailure={responseGoogle}
           responseType={'id_token'}
+          uxMode="redirect"
+          isSignedIn={true}
+          redirectUri="http://localhost:3000"
         />
+        aaa
+        <Link href={'/user/userPage'}>
+          <a>go UserPage</a>
+        </Link>
       </>
     </PageLayout>
   )
